@@ -1,0 +1,171 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Medium;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red29\green29\blue29;\red255\green255\blue255;\red0\green0\blue0;
+\red0\green0\blue255;\red32\green108\blue135;\red15\green112\blue1;\red101\green76\blue29;\red0\green0\blue109;
+\red157\green0\blue210;\red144\green1\blue18;\red19\green118\blue70;}
+{\*\expandedcolortbl;;\cssrgb\c14902\c14902\c14902;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c0\c100000;\cssrgb\c14902\c49804\c60000;\cssrgb\c0\c50196\c0;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;
+\cssrgb\c68627\c0\c85882;\cssrgb\c63922\c8235\c8235;\cssrgb\c3529\c52549\c34510;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs27 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 125 Valid Palindrome
+\f1\fs26 \cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 class\cf0 \strokec4  \cf6 \strokec6 Solution\cf0 \strokec4 :\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3     \cf7 \strokec7 #Better mine\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 # not creating new string \cf0 \cb1 \strokec4 \
+\
+\cb3         \cf5 \strokec5 def\cf0 \strokec4  \cf8 \strokec8 isAlNum\cf0 \strokec4 (\cf9 \strokec9 self\cf0 \strokec4 ,\cf9 \strokec9 s\cf0 \strokec4 ):\cb1 \
+\cb3             \cf10 \strokec10 return\cf0 \strokec4  \cf8 \strokec8 ord\cf0 \strokec4 (\cf11 \strokec11 'a'\cf0 \strokec4 )<=\cf8 \strokec8 ord\cf0 \strokec4 (s)<=\cf8 \strokec8 ord\cf0 \strokec4 (\cf11 \strokec11 'z'\cf0 \strokec4 ) \cf5 \strokec5 or\cf0 \strokec4  \cf8 \strokec8 ord\cf0 \strokec4 (\cf11 \strokec11 'A'\cf0 \strokec4 )<=\cf8 \strokec8 ord\cf0 \strokec4 (s)<=\cf8 \strokec8 ord\cf0 \strokec4 (\cf11 \strokec11 'Z'\cf0 \strokec4 ) \cf5 \strokec5 or\cf0 \strokec4  \cf8 \strokec8 ord\cf0 \strokec4 (\cf11 \strokec11 '0'\cf0 \strokec4 )<=\cf8 \strokec8 ord\cf0 \strokec4 (s)<=\cf8 \strokec8 ord\cf0 \strokec4 (\cf11 \strokec11 '9'\cf0 \strokec4 )\cb1 \
+\
+\cb3         \cf5 \strokec5 def\cf0 \strokec4  \cf8 \strokec8 isPalindrome\cf0 \strokec4 (\cf9 \strokec9 self\cf0 \strokec4 , \cf9 \strokec9 s\cf0 \strokec4 : \cf6 \strokec6 str\cf0 \strokec4 ) -> \cf6 \strokec6 bool\cf0 \strokec4 :\cb1 \
+\
+\cb3             l,r = \cf12 \strokec12 0\cf0 \strokec4 , \cf8 \strokec8 len\cf0 \strokec4 (s) - \cf12 \strokec12 1\cf0 \cb1 \strokec4 \
+\
+\cb3             \cf10 \strokec10 while\cf0 \strokec4  l < r :\cb1 \
+\
+\cb3                 \cf10 \strokec10 while\cf0 \strokec4  l<r \cf5 \strokec5 and\cf0 \strokec4  \cf5 \strokec5 not\cf0 \strokec4  \cf5 \strokec5 self\cf0 \strokec4 .isAlNum(s[l]):\cb1 \
+\cb3                     l+=\cf12 \strokec12 1\cf0 \cb1 \strokec4 \
+\cb3                 \cb1 \
+\cb3                 \cf10 \strokec10 while\cf0 \strokec4  l<r \cf5 \strokec5 and\cf0 \strokec4  \cf5 \strokec5 not\cf0 \strokec4  \cf5 \strokec5 self\cf0 \strokec4 .isAlNum(s[r]):\cb1 \
+\cb3                     r-=\cf12 \strokec12 1\cf0 \cb1 \strokec4 \
+\cb3                 \cb1 \
+\cb3                 \cf10 \strokec10 if\cf0 \strokec4  s[l].lower()!=s[r].lower():\cb1 \
+\cb3                     \cf10 \strokec10 return\cf0 \strokec4  \cf5 \strokec5 False\cf0 \strokec4  \cb1 \
+\cb3                 \cb1 \
+\cb3                 l+=\cf12 \strokec12 1\cf0 \cb1 \strokec4 \
+\cb3                 r-=\cf12 \strokec12 1\cf0 \cb1 \strokec4 \
+\cb3             \cb1 \
+\cb3             \cf10 \strokec10 return\cf0 \strokec4  \cf5 \strokec5 True\cf0 \cb1 \strokec4 \
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 # #MINE\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3    \cb1 \
+\cb3     \cf7 \strokec7 # def isAlNum(self,strs):\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #     newString = ''\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #     for s in strs:\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #         if ord('a')<=ord(s)<=ord('z') or ord('A')<=ord(s)<=ord('Z') or ord('0')<=ord(s)<=ord('9'):\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #             newString+=s\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3     \cf7 \strokec7 #     return newString \cf0 \cb1 \strokec4 \
+\
+\cb3     \cf7 \strokec7 # def isPalindrome(self, s: str) -> bool: \cf0 \cb1 \strokec4 \
+\
+\cb3     \cf7 \strokec7 #     toCheckPali = self.isAlNum(s.lower())\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf7 \strokec7 #     l,r = 0, len(toCheckPali) - 1\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf7 \strokec7 #     while l <= r:\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf7 \strokec7 #         if toCheckPali[l] != toCheckPali[r]:\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #             return False\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #         l+=1\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #         r-=1\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3     \cf7 \strokec7 #     return True \cf0 \cb1 \strokec4 \
+\
+\
+\cb3         \cf7 \strokec7 # def checkalnum(self,st):\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     return ord('a')<=ord(st)<=ord('z') or ord('A')<=ord(st)<=ord('Z') or ord('0')<=ord(st)<=ord('9')\cf0 \cb1 \strokec4 \
+\
+\
+\cb3         \cf7 \strokec7 # l,r = 0,len(s)-1\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf7 \strokec7 # while l < r:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     while l<r and not self.checkalnum(s[l]):\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         l+=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     while r>l and not self.checkalnum(s[r]):\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         r-=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     if s[l].lower()!=s[r].lower():\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #             return False \cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     l+=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     r-=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # return True \cf0 \cb1 \strokec4 \
+\
+\
+\cb3         \cf7 \strokec7 # newString=""\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # for n in s:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     if n.isalnum():\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         newString+=n.lower()\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cf7 \strokec7 # l,r=0,len(newString)-1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # while l<r:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     if newString[l]!=newString[r]:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         return False \cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     l+=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     r-=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # return True\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf7 \strokec7 # newString=""\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # for n in s:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     if self.checkalnum(n):\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         newString+=n.lower()\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # print(newString)\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # l,r=0,len(newString)-1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # while l<r:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     if newString[l]!=newString[r]:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         return False \cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     l+=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     r-=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # return True\cf0 \cb1 \strokec4 \
+\cb3     \cb1 \
+\cb3         \cf7 \strokec7 #Method 1: Mine \cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # if s == " ":\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     return True \cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 # else:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     lis = []\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     s=s.lower().replace(" ","")\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     for i in range(len(s)):\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         if s[i].isalnum():\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #             lis.append(s[i])\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     s = "".join(lis)\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     i = 0 \cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     j = len(s)-1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     while (i<j):\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         if s[i] != s[j]:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #             return False \cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #         else:\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #             i+=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #             j-=1\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #     return True\cf0 \cb1 \strokec4 \
+\cb3         \cf7 \strokec7 #Method: 2 Ineeficient neetcode \cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 #         newStr = ""\cf0 \cb1 \strokec4 \
+\cf7 \cb3 \strokec7 #         for c in s:\cf0 \cb1 \strokec4 \
+\cf7 \cb3 \strokec7 #             if c.isalnum():\cf0 \cb1 \strokec4 \
+\cf7 \cb3 \strokec7 #                 newStr += c.lower()\cf0 \cb1 \strokec4 \
+\cf7 \cb3 \strokec7 #         return newStr == newStr[::-1]\cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3         \cb1 \
+\cb3         \cf7 \strokec7 #Method: 3 \cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3     \cf7 \strokec7 # def alphaNum(self,c):\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #     return (ord('A') <= ord(c) <=ord('Z') or ord('a') <= ord(c) <=ord('z') or ord('0') <= ord(c) <=ord('9'))\cf0 \cb1 \strokec4 \
+\cb3     \cb1 \
+\cb3     \cf7 \strokec7 # def isPalindrome(self, s: str) -> bool: \cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #     l, r = 0, len(s)-1\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #     while l<r:    \cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #         while l<r and not self.alphaNum(s[l]):\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #             l+=1\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #         while r>l and not self.alphaNum(s[r]):\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #             r-=1\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #         if s[l].lower() != s[r].lower():\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #             return False \cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #         l,r = l+1,r-1\cf0 \cb1 \strokec4 \
+\cb3     \cf7 \strokec7 #     return True \cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3     \cb1 \
+\cb3             \cb1 \
+\cb3         \cb1 \
+\cb3                 \cb1 \
+\cb3     \cb1 \
+}
