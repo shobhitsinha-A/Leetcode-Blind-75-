@@ -1,0 +1,92 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNS-Regular_wdth_opsz120000_GRAD_wght1F40000;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red29\green29\blue29;\red255\green255\blue255;\red0\green0\blue255;
+\red0\green0\blue0;\red32\green108\blue135;\red101\green76\blue29;\red0\green0\blue109;\red15\green112\blue1;
+\red19\green118\blue70;\red157\green0\blue210;}
+{\*\expandedcolortbl;;\cssrgb\c14902\c14902\c14902;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c100000;
+\cssrgb\c0\c0\c0;\cssrgb\c14902\c49804\c60000;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;\cssrgb\c0\c50196\c0;
+\cssrgb\c3529\c52549\c34510;\cssrgb\c68627\c0\c85882;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs36 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 11\'a0Container With Most Water
+\f1\fs26 \cf4 \cb3 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf4 class\cf0 \strokec5  \cf6 \strokec6 Solution\cf0 \strokec5 :\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3     \cf4 \strokec4 def\cf0 \strokec5  \cf7 \strokec7 maxArea\cf0 \strokec5 (\cf8 \strokec8 self\cf0 \strokec5 , \cf8 \strokec8 height\cf0 \strokec5 : List[\cf6 \strokec6 int\cf0 \strokec5 ]) -> \cf6 \strokec6 int\cf0 \strokec5 :\cb1 \
+\
+\cb3         \cf9 \strokec9 #if you want to find maximum then one possible solution will always be to go through all the combinations and find the right answer the TC will be -> O(n^2)\cf0 \cb1 \strokec5 \
+\
+\cb3         \cf9 \strokec9 # maxArea = 0 \cf0 \cb1 \strokec5 \
+\
+\cb3         \cf9 \strokec9 # for l in range(len(height)):\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #     for r in range(l+1,len(height)):\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #         maxArea = max(maxArea,(r-l) * min(height[l],height[r]))\cf0 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf9 \strokec9 # return maxArea\cf0 \cb1 \strokec5 \
+\
+\cb3         \cf9 \strokec9 #ABOVE SOLUTION GIVES TLE\cf0 \cb1 \strokec5 \
+\
+\cb3         maxArea = \cf10 \strokec10 0\cf0 \cb1 \strokec5 \
+\
+\cb3         l,r = \cf10 \strokec10 0\cf0 \strokec5 , \cf7 \strokec7 len\cf0 \strokec5 (height)-\cf10 \strokec10 1\cf0 \cb1 \strokec5 \
+\
+\cb3         \cf11 \strokec11 while\cf0 \strokec5  l < r:\cb1 \
+\
+\cb3             maxArea = \cf7 \strokec7 max\cf0 \strokec5 (maxArea, (r-l)* \cf7 \strokec7 min\cf0 \strokec5 (height[l],height[r]))\cb1 \
+\
+\cb3             \cf11 \strokec11 if\cf0 \strokec5  height[l] < height[r]:\cb1 \
+\cb3                 l+=\cf10 \strokec10 1\cf0 \cb1 \strokec5 \
+\cb3             \cf11 \strokec11 elif\cf0 \strokec5  height[r] < height[l]:\cb1 \
+\cb3                 r-=\cf10 \strokec10 1\cf0 \cb1 \strokec5 \
+\cb3             \cf11 \strokec11 else\cf0 \strokec5 :\cb1 \
+\cb3                 l+=\cf10 \strokec10 1\cf0 \cb1 \strokec5 \
+\cb3             \cb1 \
+\cb3         \cb1 \
+\cb3         \cf11 \strokec11 return\cf0 \strokec5  maxArea\cb1 \
+\
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3      \cb1 \
+\cb3         \cb1 \
+\cb3         \cf9 \strokec9 # l,r=0,len(height)-1\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 # res=0\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 # while l<r:\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #     area=(r-l)*min(height[l],height[r])\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #     res=max(res,area)\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #     #aim to remove the smallest height \cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #     if height[l]>height[r]:\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #         r-=1\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #     else:\cf0 \cb1 \strokec5 \
+\cb3         \cf9 \strokec9 #         l+=1\cf0 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf9 \strokec9 # return res\cf0 \cb1 \strokec5 \
+}
