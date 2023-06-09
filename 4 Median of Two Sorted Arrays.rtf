@@ -1,0 +1,125 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Medium;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red29\green29\blue29;\red255\green255\blue255;\red0\green0\blue0;
+\red0\green0\blue255;\red32\green108\blue135;\red101\green76\blue29;\red0\green0\blue109;\red15\green112\blue1;
+\red19\green118\blue70;\red157\green0\blue210;\red144\green1\blue18;}
+{\*\expandedcolortbl;;\cssrgb\c14902\c14902\c14902;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c0\c100000;\cssrgb\c14902\c49804\c60000;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;\cssrgb\c0\c50196\c0;
+\cssrgb\c3529\c52549\c34510;\cssrgb\c68627\c0\c85882;\cssrgb\c63922\c8235\c8235;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs27 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 4 Median of Two Sorted Arrays
+\f1\fs26 \cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 class\cf0 \strokec4  \cf6 \strokec6 Solution\cf0 \strokec4 :\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3     \cf5 \strokec5 def\cf0 \strokec4  \cf7 \strokec7 findMedianSortedArrays\cf0 \strokec4 (\cf8 \strokec8 self\cf0 \strokec4 , \cf8 \strokec8 nums1\cf0 \strokec4 : List[\cf6 \strokec6 int\cf0 \strokec4 ], \cf8 \strokec8 nums2\cf0 \strokec4 : List[\cf6 \strokec6 int\cf0 \strokec4 ]) -> \cf6 \strokec6 float\cf0 \strokec4 :\cb1 \
+\cb3         \cf9 \strokec9 #Stepwise solve \cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #first step which is bigger a or b\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #we will take smaller one \cf0 \cb1 \strokec4 \
+\
+\cb3         total = \cf7 \strokec7 len\cf0 \strokec4 (nums1)+\cf7 \strokec7 len\cf0 \strokec4 (nums2)\cb1 \
+\cb3         half = total//\cf10 \strokec10 2\cf0 \cb1 \strokec4 \
+\cb3         A,B = nums1,nums2\cb1 \
+\
+\cb3         \cf11 \strokec11 if\cf0 \strokec4  \cf7 \strokec7 len\cf0 \strokec4 (A) > \cf7 \strokec7 len\cf0 \strokec4 (B):\cb1 \
+\cb3             A,B = B,A \cb1 \
+\
+\cb3         \cf9 \strokec9 #a contains less elements \cf0 \cb1 \strokec4 \
+\
+\cb3         l,r = \cf10 \strokec10 0\cf0 \strokec4 , \cf7 \strokec7 len\cf0 \strokec4 (A) - \cf10 \strokec10 1\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf9 \strokec9 #because we will definitely get a median \cf0 \cb1 \strokec4 \
+\cb3         \cf11 \strokec11 while\cf0 \strokec4  \cf5 \strokec5 True\cf0 \strokec4 :\cb1 \
+\
+\cb3             i = (l+r)//\cf10 \strokec10 2\cf0 \cb1 \strokec4 \
+\cb3             j = half - i - \cf10 \strokec10 2\cf0 \cb1 \strokec4 \
+\
+\cb3             Aleft =  A[i] \cf11 \strokec11 if\cf0 \strokec4  i>=\cf10 \strokec10 0\cf0 \strokec4  \cf11 \strokec11 else\cf0 \strokec4  \cf6 \strokec6 float\cf0 \strokec4 (\cf12 \strokec12 '-inf'\cf0 \strokec4 )\cb1 \
+\cb3             Aright = A[i+\cf10 \strokec10 1\cf0 \strokec4 ] \cf11 \strokec11 if\cf0 \strokec4  (i+\cf10 \strokec10 1\cf0 \strokec4 ) < \cf7 \strokec7 len\cf0 \strokec4 (A) \cf11 \strokec11 else\cf0 \strokec4  \cf6 \strokec6 float\cf0 \strokec4 (\cf12 \strokec12 'inf'\cf0 \strokec4 )\cb1 \
+\cb3             Bleft = B[j] \cf11 \strokec11 if\cf0 \strokec4  j>=\cf10 \strokec10 0\cf0 \strokec4  \cf11 \strokec11 else\cf0 \strokec4  \cf6 \strokec6 float\cf0 \strokec4 (\cf12 \strokec12 '-inf'\cf0 \strokec4 )\cb1 \
+\cb3             Bright = B[j+\cf10 \strokec10 1\cf0 \strokec4 ] \cf11 \strokec11 if\cf0 \strokec4  (j+\cf10 \strokec10 1\cf0 \strokec4 ) < \cf7 \strokec7 len\cf0 \strokec4 (B) \cf11 \strokec11 else\cf0 \strokec4  \cf6 \strokec6 float\cf0 \strokec4 (\cf12 \strokec12 'inf'\cf0 \strokec4 )\cb1 \
+\
+\cb3             \cf9 \strokec9 #if correct portioning \cf0 \cb1 \strokec4 \
+\cb3             \cf11 \strokec11 if\cf0 \strokec4  Aleft <= Bright \cf5 \strokec5 and\cf0 \strokec4  Bleft <= Aright:\cb1 \
+\cb3                 \cf9 \strokec9 #if odd\cf0 \cb1 \strokec4 \
+\cb3                 \cf11 \strokec11 if\cf0 \strokec4  total%\cf10 \strokec10 2\cf0 \strokec4 :\cb1 \
+\cb3                     \cf11 \strokec11 return\cf0 \strokec4  \cf7 \strokec7 min\cf0 \strokec4 (Bright,Aright)\cb1 \
+\cb3                 \cf11 \strokec11 else\cf0 \strokec4 :\cb1 \
+\cb3                     \cf11 \strokec11 return\cf0 \strokec4  (\cf7 \strokec7 max\cf0 \strokec4 (Aleft,Bleft)+\cf7 \strokec7 min\cf0 \strokec4 (Bright,Aright))/\cf10 \strokec10 2\cf0 \cb1 \strokec4 \
+\cb3             \cb1 \
+\cb3             \cf11 \strokec11 elif\cf0 \strokec4  Aleft>Bright:\cb1 \
+\cb3                 r = i -\cf10 \strokec10 1\cf0 \cb1 \strokec4 \
+\cb3             \cf11 \strokec11 else\cf0 \strokec4 :\cb1 \
+\cb3                 l = i + \cf10 \strokec10 1\cf0 \strokec4  \cb1 \
+\
+\
+\
+\cb3         \cb1 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cb3         \cf9 \strokec9 # l1,l2 = 0,0\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 # merged = []\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf9 \strokec9 # while l1 < len(nums1) and l2 < len(nums2):\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     if nums1[l1] <= nums2[l2]:\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #         merged.append(nums1[l1])\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #         l1+=1\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     else:\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #         merged.append(nums2[l2])\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #         l2+=1\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf9 \strokec9 # while l1 < len(nums1):\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     merged.append(nums1[l1])\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     l1+=1\cf0 \cb1 \strokec4 \
+\cb3             \cb1 \
+\cb3         \cf9 \strokec9 # while l2 < len(nums2):\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     merged.append(nums2[l2])\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     l2+=1\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cf9 \strokec9 # print(merged)\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 # l,r = 0,len(merged)-1\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf9 \strokec9 # mid = (l+r)//2\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf9 \strokec9 # if len(merged)%2==1:\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     return merged[mid]\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf9 \strokec9 # else:\cf0 \cb1 \strokec4 \
+\cb3         \cf9 \strokec9 #     return (merged[mid]+merged[(mid+1)])/2\cf0 \cb1 \strokec4 \
+\
+\
+\
+\
+\
+}
