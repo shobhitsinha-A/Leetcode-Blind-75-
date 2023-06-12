@@ -1,0 +1,133 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNS-Regular_wdth_opsz120000_GRAD_wght1F40000;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red29\green29\blue29;\red255\green255\blue255;\red0\green0\blue0;
+\red12\green99\blue153;\red210\green50\blue85;\red135\green135\blue135;\red85\green138\blue3;\red135\green91\blue44;
+\red255\green255\blue255;\red133\green0\blue67;\red93\green108\blue125;}
+{\*\expandedcolortbl;;\cssrgb\c14902\c14902\c14902;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c46667\c66667;\cssrgb\c86667\c29020\c40784;\cssrgb\c60000\c60000\c60000;\cssrgb\c40000\c60000\c0;\cssrgb\c60392\c43137\c22745;
+\cssrgb\c100000\c100000\c100000\c50196;\cssrgb\c60000\c0\c33333;\cssrgb\c43922\c50196\c56471;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs36 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 567\'a0Permutation in String
+\f1\fs26 \cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 class\cf0 \strokec4  \cf6 \strokec6 Solution\cf7 \strokec7 :\cf0 \strokec4 \
+    \cf5 \strokec5 def\cf0 \strokec4  \cf6 \strokec6 checkInclusion\cf7 \strokec7 (\cf0 \strokec4 self\cf7 \strokec7 ,\cf0 \strokec4  s1\cf7 \strokec7 :\cf0 \strokec4  \cf8 \strokec8 str\cf7 \strokec7 ,\cf0 \strokec4  s2\cf7 \strokec7 :\cf0 \strokec4  \cf8 \strokec8 str\cf7 \strokec7 )\cf0 \strokec4  \cf9 \cb10 \strokec9 ->\cf0 \cb1 \strokec4  \cf8 \strokec8 bool\cf7 \strokec7 :\cf0 \strokec4 \
+\
+        \cf5 \strokec5 if\cf0 \strokec4  \cf8 \strokec8 len\cf7 \strokec7 (\cf0 \strokec4 s1\cf7 \strokec7 )\cf9 \cb10 \strokec9 >\cf8 \cb1 \strokec8 len\cf7 \strokec7 (\cf0 \strokec4 s2\cf7 \strokec7 ):\cf0 \strokec4  \cf5 \strokec5 return\cf0 \strokec4  \cf11 \strokec11 False\cf0 \strokec4 \
+\
+        counts1\cf7 \strokec7 ,\cf0 \strokec4 counts2 \cf9 \cb10 \strokec9 =\cf0 \cb1 \strokec4  \cf7 \strokec7 [\cf11 \strokec11 0\cf7 \strokec7 ]\cf9 \cb10 \strokec9 *\cf11 \cb1 \strokec11 26\cf7 \strokec7 ,\cf0 \strokec4  \cf7 \strokec7 [\cf11 \strokec11 0\cf7 \strokec7 ]\cf9 \cb10 \strokec9 *\cf11 \cb1 \strokec11 26\cf0 \strokec4 \
+\
+        \cf5 \strokec5 for\cf0 \strokec4  i \cf5 \strokec5 in\cf0 \strokec4  \cf8 \strokec8 range\cf7 \strokec7 (\cf8 \strokec8 len\cf7 \strokec7 (\cf0 \strokec4 s1\cf7 \strokec7 )):\cf0 \strokec4 \
+\
+            counts1\cf7 \strokec7 [\cf8 \strokec8 ord\cf7 \strokec7 (\cf0 \strokec4 s1\cf7 \strokec7 [\cf0 \strokec4 i\cf7 \strokec7 ])\cf9 \cb10 \strokec9 -\cf8 \cb1 \strokec8 ord\cf7 \strokec7 (\cf8 \strokec8 'a'\cf7 \strokec7 )]\cf0 \strokec4  \cf9 \cb10 \strokec9 +=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+            counts2\cf7 \strokec7 [\cf8 \strokec8 ord\cf7 \strokec7 (\cf0 \strokec4 s2\cf7 \strokec7 [\cf0 \strokec4 i\cf7 \strokec7 ])\cf9 \cb10 \strokec9 -\cf8 \cb1 \strokec8 ord\cf7 \strokec7 (\cf8 \strokec8 'a'\cf7 \strokec7 )]\cf0 \strokec4  \cf9 \cb10 \strokec9 +=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+        \
+        \cf5 \strokec5 print\cf7 \strokec7 (\cf0 \strokec4 counts1\cf7 \strokec7 )\cf0 \strokec4 \
+        \cf5 \strokec5 print\cf7 \strokec7 (\cf0 \strokec4 counts2\cf7 \strokec7 )\cf0 \strokec4 \
+\
+        matches \cf9 \cb10 \strokec9 =\cf0 \cb1 \strokec4  \cf11 \strokec11 0\cf0 \strokec4  \
+\
+        \cf5 \strokec5 for\cf0 \strokec4  i \cf5 \strokec5 in\cf0 \strokec4  \cf8 \strokec8 range\cf7 \strokec7 (\cf11 \strokec11 26\cf7 \strokec7 ):\cf0 \strokec4 \
+            matches \cf9 \cb10 \strokec9 +=\cf0 \cb1 \strokec4  \cf7 \strokec7 (\cf11 \strokec11 1\cf0 \strokec4  \cf5 \strokec5 if\cf0 \strokec4  counts1\cf7 \strokec7 [\cf0 \strokec4 i\cf7 \strokec7 ]\cf9 \cb10 \strokec9 ==\cf0 \cb1 \strokec4 counts2\cf7 \strokec7 [\cf0 \strokec4 i\cf7 \strokec7 ]\cf0 \strokec4  \cf5 \strokec5 else\cf0 \strokec4  \cf11 \strokec11 0\cf7 \strokec7 )\cf0 \strokec4 \
+        \
+        \cf5 \strokec5 print\cf7 \strokec7 (\cf0 \strokec4 matches\cf7 \strokec7 )\cf0 \strokec4 \
+\
+        l \cf9 \cb10 \strokec9 =\cf0 \cb1 \strokec4  \cf11 \strokec11 0\cf0 \strokec4  \
+\
+        \cf5 \strokec5 for\cf0 \strokec4  r \cf5 \strokec5 in\cf0 \strokec4  \cf8 \strokec8 range\cf7 \strokec7 (\cf8 \strokec8 len\cf7 \strokec7 (\cf0 \strokec4 s1\cf7 \strokec7 ),\cf8 \strokec8 len\cf7 \strokec7 (\cf0 \strokec4 s2\cf7 \strokec7 )):\cf0 \strokec4 \
+\
+            \cf5 \strokec5 if\cf0 \strokec4  matches \cf9 \cb10 \strokec9 ==\cf0 \cb1 \strokec4  \cf11 \strokec11 26\cf7 \strokec7 :\cf0 \strokec4 \
+                \cf5 \strokec5 return\cf0 \strokec4  \cf11 \strokec11 True\cf0 \strokec4  \
+            \
+            \cf12 \strokec12 #adding to window\cf0 \strokec4 \
+            index \cf9 \cb10 \strokec9 =\cf0 \cb1 \strokec4  \cf8 \strokec8 ord\cf7 \strokec7 (\cf0 \strokec4 s2\cf7 \strokec7 [\cf0 \strokec4 r\cf7 \strokec7 ])\cf9 \cb10 \strokec9 -\cf8 \cb1 \strokec8 ord\cf7 \strokec7 (\cf8 \strokec8 'a'\cf7 \strokec7 )\cf0 \strokec4 \
+\
+            counts2\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]\cf9 \cb10 \strokec9 +=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+\
+            \cf5 \strokec5 if\cf0 \strokec4  counts1\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]\cf0 \strokec4  \cf9 \cb10 \strokec9 ==\cf0 \cb1 \strokec4  counts2\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]:\cf0 \strokec4 \
+                matches\cf9 \cb10 \strokec9 +=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+            \cf5 \strokec5 elif\cf0 \strokec4  counts1\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]\cf0 \strokec4  \cf9 \cb10 \strokec9 +\cf0 \cb1 \strokec4  \cf11 \strokec11 1\cf0 \strokec4  \cf9 \cb10 \strokec9 ==\cf0 \cb1 \strokec4  counts2\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]:\cf0 \strokec4 \
+                matches\cf9 \cb10 \strokec9 -=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+\
+            \cf12 \strokec12 #subtracting window\cf0 \strokec4 \
+\
+            index \cf9 \cb10 \strokec9 =\cf0 \cb1 \strokec4  \cf8 \strokec8 ord\cf7 \strokec7 (\cf0 \strokec4 s2\cf7 \strokec7 [\cf0 \strokec4 l\cf7 \strokec7 ])\cf9 \cb10 \strokec9 -\cf8 \cb1 \strokec8 ord\cf7 \strokec7 (\cf8 \strokec8 'a'\cf7 \strokec7 )\cf0 \strokec4 \
+\
+            counts2\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]\cf9 \cb10 \strokec9 -=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+            \cf5 \strokec5 if\cf0 \strokec4  counts1\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]\cf9 \cb10 \strokec9 ==\cf0 \cb1 \strokec4 counts2\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]:\cf0 \strokec4 \
+                matches\cf9 \cb10 \strokec9 +=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+            \cf5 \strokec5 elif\cf0 \strokec4  counts1\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]\cf0 \strokec4  \cf9 \cb10 \strokec9 -\cf0 \cb1 \strokec4  \cf11 \strokec11 1\cf0 \strokec4  \cf9 \cb10 \strokec9 ==\cf0 \cb1 \strokec4  counts2\cf7 \strokec7 [\cf0 \strokec4 index\cf7 \strokec7 ]:\cf0 \strokec4 \
+                matches\cf9 \cb10 \strokec9 -=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+            l\cf9 \cb10 \strokec9 +=\cf11 \cb1 \strokec11 1\cf0 \strokec4 \
+\
+        \cf5 \strokec5 return\cf0 \strokec4  matches \cf9 \cb10 \strokec9 ==\cf0 \cb1 \strokec4  \cf11 \strokec11 26\cf0 \strokec4 \
+            \
+            \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+        \cf12 \strokec12 # counts1=\{\}\cf0 \strokec4 \
+\
+        \cf12 \strokec12 # for i in range(len(s1)):\cf0 \strokec4 \
+\
+        \cf12 \strokec12 #     counts1[s1[i]] = 1 + counts1.get(s1[i],0)\cf0 \strokec4 \
+        \
+        \cf12 \strokec12 # print(counts1)\cf0 \strokec4 \
+        \cf12 \strokec12 # lenW = len(s1)\cf0 \strokec4 \
+\
+        \cf12 \strokec12 # l,r=0,lenW-1\cf0 \strokec4 \
+\
+        \cf12 \strokec12 # counts2=\{\}\cf0 \strokec4 \
+\
+        \cf12 \strokec12 # while r<len(s2):\cf0 \strokec4 \
+            \
+        \cf12 \strokec12 #     for i in range(l,l+lenW):\cf0 \strokec4 \
+        \cf12 \strokec12 #         counts2[s2[i]] = 1 + counts2.get(s2[i],0)\cf0 \strokec4 \
+            \
+        \cf12 \strokec12 #     print(counts2)\cf0 \strokec4 \
+        \cf12 \strokec12 #     if counts1 == counts2:\cf0 \strokec4 \
+        \cf12 \strokec12 #         return True \cf0 \strokec4 \
+        \cf12 \strokec12 #     else:\cf0 \strokec4 \
+        \cf12 \strokec12 #         counts2.clear()\cf0 \strokec4 \
+        \cf12 \strokec12 #         l+=1\cf0 \strokec4 \
+        \cf12 \strokec12 #         r = l + lenW - 1\cf0 \strokec4 \
+        \cf12 \strokec12 #         print(r)\cf0 \strokec4 \
+        \
+        \cf12 \strokec12 # return False\cf0 \strokec4 \
+}
