@@ -1,0 +1,271 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Medium;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red29\green29\blue29;\red255\green255\blue255;\red0\green0\blue0;
+\red0\green0\blue255;\red32\green108\blue135;\red101\green76\blue29;\red0\green0\blue109;\red157\green0\blue210;
+\red19\green118\blue70;\red144\green1\blue18;\red15\green112\blue1;}
+{\*\expandedcolortbl;;\cssrgb\c14902\c14902\c14902;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c0\c100000;\cssrgb\c14902\c49804\c60000;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;\cssrgb\c68627\c0\c85882;
+\cssrgb\c3529\c52549\c34510;\cssrgb\c63922\c8235\c8235;\cssrgb\c0\c50196\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs27 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 76\'a0Minimum Window Substring
+\f1\fs26 \cf0 \cb1 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 class\cf0 \strokec4  \cf6 \strokec6 Solution\cf0 \strokec4 :\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3     \cf5 \strokec5 def\cf0 \strokec4  \cf7 \strokec7 minWindow\cf0 \strokec4 (\cf8 \strokec8 self\cf0 \strokec4 , \cf8 \strokec8 s\cf0 \strokec4 : \cf6 \strokec6 str\cf0 \strokec4 , \cf8 \strokec8 t\cf0 \strokec4 : \cf6 \strokec6 str\cf0 \strokec4 ) -> \cf6 \strokec6 str\cf0 \strokec4 :\cb1 \
+\
+\cb3         \cf9 \strokec9 if\cf0 \strokec4  \cf7 \strokec7 len\cf0 \strokec4 (t) == \cf10 \strokec10 0\cf0 \strokec4 : \cf9 \strokec9 return\cf0 \strokec4  \cf11 \cb3 \strokec11 ""\cf0 \cb1 \strokec4 \
+\
+\cb3         countT, window = \{\},\{\}\cb1 \
+\
+\cb3         \cf9 \strokec9 for\cf0 \strokec4  c \cf5 \strokec5 in\cf0 \strokec4  t:\cb1 \
+\cb3             countT[c] = \cf10 \strokec10 1\cf0 \strokec4  + countT.get(c,\cf10 \strokec10 0\cf0 \strokec4 )\cb1 \
+\cb3         \cb1 \
+\cb3         have, need = \cf10 \strokec10 0\cf0 \strokec4 , \cf7 \strokec7 len\cf0 \strokec4 (countT)\cb1 \
+\cb3         l = \cf10 \strokec10 0\cf0 \strokec4  \cb1 \
+\cb3         res,resLen = [-\cf10 \strokec10 1\cf0 \strokec4 ,-\cf10 \strokec10 1\cf0 \strokec4 ], \cf6 \strokec6 float\cf0 \strokec4 (\cf11 \cb3 \strokec11 'infinity'\cf0 \cb3 \strokec4 ) \cb1 \
+\
+\cb3         \cf9 \strokec9 for\cf0 \strokec4  r \cf5 \strokec5 in\cf0 \strokec4  \cf7 \strokec7 range\cf0 \strokec4 (\cf7 \strokec7 len\cf0 \strokec4 (s)):\cb1 \
+\cb3             c = s[r]\cb1 \
+\
+\cb3             window[c] = \cf10 \strokec10 1\cf0 \strokec4  + window.get(c,\cf10 \strokec10 0\cf0 \strokec4 )\cb1 \
+\
+\cb3             \cf9 \strokec9 if\cf0 \strokec4  c \cf5 \strokec5 in\cf0 \strokec4  countT \cf5 \strokec5 and\cf0 \strokec4  window[c] == countT[c]:\cb1 \
+\cb3                 have+=\cf10 \strokec10 1\cf0 \cb1 \strokec4 \
+\cb3             \cb1 \
+\cb3             \cf9 \strokec9 while\cf0 \strokec4  have == need:\cb1 \
+\cb3                 \cf9 \strokec9 if\cf0 \strokec4  (r-l+\cf10 \strokec10 1\cf0 \strokec4 ) < resLen:\cb1 \
+\cb3                     res = [l,r]\cb1 \
+\cb3                     resLen = (r-l+\cf10 \strokec10 1\cf0 \strokec4 )\cb1 \
+\cb3                 \cb1 \
+\cb3                 window[s[l]] -= \cf10 \strokec10 1\cf0 \strokec4  \cb1 \
+\cb3                 \cf9 \strokec9 if\cf0 \strokec4  s[l] \cf5 \strokec5 in\cf0 \strokec4  countT \cf5 \strokec5 and\cf0 \strokec4  window[s[l]]<countT[s[l]]:\cb1 \
+\cb3                     have-=\cf10 \strokec10 1\cf0 \cb1 \strokec4 \
+\cb3                 \cb1 \
+\cb3                 l+=\cf10 \strokec10 1\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         l,r = res\cb1 \
+\
+\cb3         \cf9 \strokec9 return\cf0 \strokec4  s[l:r+\cf10 \strokec10 1\cf0 \strokec4 ] \cf9 \strokec9 if\cf0 \strokec4  resLen!=\cf6 \strokec6 float\cf0 \strokec4 (\cf11 \cb3 \strokec11 'infinity'\cf0 \cb3 \strokec4 ) \cf9 \strokec9 else\cf0 \strokec4  \cf11 \cb3 \strokec11 ""\cf0 \cb1 \strokec4 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cb3         \cf12 \strokec12 # #handling edge case \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # if t == "": return ""\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 # countT, window = \{\},\{\}\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf12 \strokec12 # #created hashmap of T\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # for c in t:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     countT[c] = 1 + countT.get(c,0)\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 # have,need = 0, len(countT)\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # l = 0\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # res,reslen = [-1,-1],float("infinity")\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 # for r in range(len(s)):\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     #adding character to window\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     c = s[r]\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     window[c] = 1 + window.get(c,0)\cf0 \cb1 \strokec4 \
+\cb3             \cb1 \
+\cb3         \cf12 \strokec12 #     #checking if have condition met for added character \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     if c in countT and window[c] == countT[c]:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         have += 1\cf0 \cb1 \strokec4 \
+\cb3             \cb1 \
+\cb3         \cf12 \strokec12 #     #checking if have and need condition met \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     while have == need:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         #update res \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         if r-l+1 < reslen:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #             res = [l,r]\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #             reslen = r-l+1\cf0 \cb1 \strokec4 \
+\cb3                 \cb1 \
+\cb3         \cf12 \strokec12 #         #start decreasing to make string smaller from left \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         window[s[l]] -=1\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf12 \strokec12 #         #if a character removed that is useless then do nothing or else if a character removed which does not\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         #affect condition of any imp character leave it as it is.\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf12 \strokec12 #         if s[l] in countT and window[s[l]] < countT[s[l]]:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #             have-=1\cf0 \cb1 \strokec4 \
+\cb3                 \cb1 \
+\cb3         \cf12 \strokec12 #         #make string smaller \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         l+=1\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 # l,r = res\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # return s[l:r+1]\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 # countT = \{\}\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf12 \strokec12 # for i in range(len(t)):\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     countT[t[i]] = 1 + countT.get(t[i],0)\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3         \cf12 \strokec12 # window = \{\}\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # window = dict.fromkeys(countT.keys(),0)\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf12 \strokec12 # l = 0 \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # index = deque()\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # minlength = 100000000\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 # minwinsub=''\cf0 \cb1 \strokec4 \
+\
+\cb3         \cf12 \strokec12 # for r in range(len(s)):\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #     if s[r] in window:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         window[s[r]] += 1\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         index.append(r)\cf0 \cb1 \strokec4 \
+\
+\
+\
+\cb3         \cf12 \strokec12 #     if window == countT:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         length = r-l+1\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         if length < minlength:\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #             minlength = length \cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #             minwinsub=s[l:r+1]\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         window[s[l]] -=1\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         index.popleft()\cf0 \cb1 \strokec4 \
+\cb3         \cf12 \strokec12 #         l=index[0]\cf0 \cb1 \strokec4 \
+\
+\
+\cb3                 \cb1 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cb3     \cf12 \strokec12 #     if len(s)<len(t):\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #         return ''\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3     \cf12 \strokec12 #     tempt = []\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     for n in t:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #         tempt.append(n)\cf0 \cb1 \strokec4 \
+\cb3         \cb1 \
+\cb3     \cf12 \strokec12 #     l,r=0,0\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     index = deque()\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     minlistlen = 100000000000\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     minsub = ''\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     lis = ''\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     flag=0\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     count=0\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #     while r < len(s):\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #         if s[r] in tempt:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             lis+=s[r]\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             tempt.remove(s[r])\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             if r in index:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 pass\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             else:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 index.append(r)\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             count+=1\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             flag=1\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #         if flag==1:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             if s[r] not in tempt:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 lis+=s[r]\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf12 \strokec12 #         if count == len(t):\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             flag=0\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             if len(lis)<minlistlen:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 minlistlen = len(lis)\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 minsub = lis\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 if len(minsub) == len(t):\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                     return minsub\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             lis=''\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             count=0\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             index.popleft()\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             if len(index):\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 l=index[0]\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             else:\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #                 l=1\cf0 \cb1 \strokec4 \
+\cb3     \cf12 \strokec12 #             r=l-1\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf12 \strokec12 #         r+=1\cf0 \cb1 \strokec4 \
+\
+\cb3     \cf12 \strokec12 #     return minsub\cf0 \cb1 \strokec4 \
+}
