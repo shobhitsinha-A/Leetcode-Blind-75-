@@ -1,39 +1,59 @@
 {\rtf1\ansi\ansicpg1252\cocoartf2706
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNS-Regular_wdth_opsz120000_GRAD_wght1F40000;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 HelveticaNeue;
-}
-{\colortbl;\red255\green255\blue255;\red29\green29\blue29;\red255\green255\blue255;\red0\green0\blue0;
-\red15\green112\blue1;\red0\green0\blue255;\red32\green108\blue135;\red101\green76\blue29;\red0\green0\blue109;
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Medium;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red29\green29\blue29;\red255\green255\blue255;\red15\green112\blue1;
+\red0\green0\blue0;\red0\green0\blue255;\red32\green108\blue135;\red101\green76\blue29;\red0\green0\blue109;
 \red157\green0\blue210;}
-{\*\expandedcolortbl;;\cssrgb\c14902\c14902\c14902;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
-\cssrgb\c0\c50196\c0;\cssrgb\c0\c0\c100000;\cssrgb\c14902\c49804\c60000;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;
+{\*\expandedcolortbl;;\cssrgb\c14902\c14902\c14902;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c50196\c0;
+\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c100000;\cssrgb\c14902\c49804\c60000;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;
 \cssrgb\c68627\c0\c85882;}
 \margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
-\f0\fs36 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\f0\fs27 \cf2 \cb3 \expnd0\expndtw0\kerning0
 \outl0\strokewidth0 \strokec2 206\'a0Reverse Linked List
-\f1\fs26 \cf0 \cb1 \outl0\strokewidth0 \
+\f1\fs26 \cf4 \cb3 \strokec4 \
 \pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \outl0\strokewidth0 \strokec5 # Definition for singly-linked list.\cf0 \cb1 \strokec4 \
-\cf5 \cb3 \strokec5 # class ListNode:\cf0 \cb1 \strokec4 \
-\cf5 \cb3 \strokec5 #     def __init__(self, val=0, next=None):\cf0 \cb1 \strokec4 \
-\cf5 \cb3 \strokec5 #         self.val = val\cf0 \cb1 \strokec4 \
-\cf5 \cb3 \strokec5 #         self.next = next\cf0 \cb1 \strokec4 \
-\cf6 \cb3 \strokec6 class\cf0 \strokec4  \cf7 \strokec7 Solution\cf0 \strokec4 :\cb1 \
-\cb3     \cf6 \strokec6 def\cf0 \strokec4  \cf8 \strokec8 reverseList\cf0 \strokec4 (\cf9 \strokec9 self\cf0 \strokec4 , \cf9 \strokec9 head\cf0 \strokec4 : Optional[ListNode]) -> Optional[ListNode]:\cb1 \
-\cb3         prev,curr = \cf6 \strokec6 None\cf0 \strokec4 , head\cb1 \
-\cb3         \cb1 \
-\cb3         \cf10 \strokec10 while\cf0 \strokec4  curr:\cb1 \
-\cb3                 \cf8 \strokec8 next\cf0 \strokec4  = curr.next\cb1 \
-\cb3                 curr.next = prev \cb1 \
-\cb3                 prev = curr \cb1 \
-\cb3                 curr = \cf8 \strokec8 next\cf0 \strokec4  \cb1 \
-\cb3         \cb1 \
-\cb3         \cf10 \strokec10 return\cf0 \strokec4  prev\cb1 \
+\cf4 # Definition for singly-linked list.\cf0 \cb1 \strokec5 \
+\cf4 \cb3 \strokec4 # class ListNode:\cf0 \cb1 \strokec5 \
+\cf4 \cb3 \strokec4 #     def __init__(self, val=0, next=None):\cf0 \cb1 \strokec5 \
+\cf4 \cb3 \strokec4 #         self.val = val\cf0 \cb1 \strokec5 \
+\cf4 \cb3 \strokec4 #         self.next = next\cf0 \cb1 \strokec5 \
 \pard\pardeftab720\partightenfactor0
-\cf0 \outl0\strokewidth0 \
-\pard\pardeftab560\slleading20\partightenfactor0
-
-\f2 \cf0 \kerning1\expnd0\expndtw0      \
+\cf6 \cb3 \strokec6 class\cf0 \strokec5  \cf7 \strokec7 Solution\cf0 \strokec5 :\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb3     \cf6 \strokec6 def\cf0 \strokec5  \cf8 \strokec8 reverseList\cf0 \strokec5 (\cf9 \strokec9 self\cf0 \strokec5 , \cf9 \strokec9 head\cf0 \strokec5 : Optional[ListNode]) -> Optional[ListNode]:\cb1 \
+\cb3         \cb1 \
+\cb3         \cf4 \strokec4 #recursice way \cf0 \cb1 \strokec5 \
+\
+\cb3         \cf10 \strokec10 if\cf0 \strokec5  \cf6 \strokec6 not\cf0 \strokec5  head:\cb1 \
+\cb3                 \cf10 \strokec10 return\cf0 \strokec5  \cf6 \strokec6 None\cf0 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         newHead = head\cb1 \
+\
+\cb3         \cf10 \strokec10 if\cf0 \strokec5  head.next:\cb1 \
+\cb3                 newHead = \cf6 \strokec6 self\cf0 \strokec5 .reverseList(head.next)\cb1 \
+\cb3                 head.next.next = head\cb1 \
+\cb3         head.next = \cf6 \strokec6 None\cf0 \cb1 \strokec5 \
+\
+\cb3         \cf10 \strokec10 return\cf0 \strokec5  newHead \cb1 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cb3         \cf4 \strokec4 # prev, curr = None, head \cf0 \cb1 \strokec5 \
+\
+\cb3         \cf4 \strokec4 # while curr:\cf0 \cb1 \strokec5 \
+\cb3         \cf4 \strokec4 #     next = curr.next\cf0 \cb1 \strokec5 \
+\cb3         \cf4 \strokec4 #     curr.next = prev \cf0 \cb1 \strokec5 \
+\cb3         \cf4 \strokec4 #     prev = curr\cf0 \cb1 \strokec5 \
+\cb3         \cf4 \strokec4 #     curr = next \cf0 \cb1 \strokec5 \
+\cb3         \cb1 \
+\cb3         \cf4 \strokec4 # return prev \cf0 \cb1 \strokec5 \
+\
 }
