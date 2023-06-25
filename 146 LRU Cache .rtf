@@ -1,0 +1,79 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue255;\red255\green255\blue255;
+\red32\green108\blue135;\red101\green76\blue29;\red0\green0\blue109;\red15\green112\blue1;\red19\green118\blue70;
+\red157\green0\blue210;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c100000;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c14902\c49804\c60000;\cssrgb\c47451\c36863\c14902;\cssrgb\c0\c6275\c50196;\cssrgb\c0\c50196\c0;\cssrgb\c3529\c52549\c34510;
+\cssrgb\c68627\c0\c85882;}
+\margl1440\margr1440\vieww28600\viewh8900\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 146 LRU Cache \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 class\cf0 \strokec2  \cf5 \strokec5 Node\cf0 \strokec2 :\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4     \cf3 \strokec3 def\cf0 \strokec2  \cf6 \strokec6 __init__\cf0 \strokec2 (\cf7 \strokec7 self\cf0 \strokec2 ,\cf7 \strokec7 key\cf0 \strokec2 ,\cf7 \strokec7 val\cf0 \strokec2 ):\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .key = key\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .val = val\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .prev = \cf3 \strokec3 self\cf0 \strokec2 .next = \cf3 \strokec3 None\cf0 \cb1 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 class\cf0 \strokec2  \cf5 \strokec5 LRUCache\cf0 \strokec2 :\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4     \cf3 \strokec3 def\cf0 \strokec2  \cf6 \strokec6 __init__\cf0 \strokec2 (\cf7 \strokec7 self\cf0 \strokec2 , \cf7 \strokec7 capacity\cf0 \strokec2 : \cf5 \strokec5 int\cf0 \strokec2 ):\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .caps = capacity\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .cache=\{\} \cf8 \strokec8 #key:node \cf0 \cb1 \strokec2 \
+\
+\cb4         \cf8 \strokec8 #create left and right \cf0 \cb1 \strokec2 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .left = Node(\cf9 \strokec9 0\cf0 \strokec2 ,\cf9 \strokec9 0\cf0 \strokec2 )\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .right = Node(\cf9 \strokec9 0\cf0 \strokec2 ,\cf9 \strokec9 0\cf0 \strokec2 )\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .left.next = \cf3 \strokec3 self\cf0 \strokec2 .right\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .right.prev = \cf3 \strokec3 self\cf0 \strokec2 .left\cb1 \
+\cb4     \cb1 \
+\cb4     \cf8 \strokec8 #helper functions\cf0 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 def\cf0 \strokec2  \cf6 \strokec6 remove\cf0 \strokec2 (\cf7 \strokec7 self\cf0 \strokec2 ,\cf7 \strokec7 node\cf0 \strokec2 ):\cb1 \
+\cb4         prev, nxt = node.prev, node.next\cb1 \
+\cb4         prev.next, nxt.prev = nxt, prev\cb1 \
+\
+\cb4     \cf3 \strokec3 def\cf0 \strokec2  \cf6 \strokec6 add\cf0 \strokec2 (\cf7 \strokec7 self\cf0 \strokec2 ,\cf7 \strokec7 node\cf0 \strokec2 ):\cb1 \
+\cb4         prev,nxt = \cf3 \strokec3 self\cf0 \strokec2 .right.prev, \cf3 \strokec3 self\cf0 \strokec2 .right \cb1 \
+\cb4         prev.next = nxt.prev = node \cb1 \
+\cb4         \cf8 \strokec8 #node.prev, node.nxt = prev, nxt \cf0 \cb1 \strokec2 \
+\cb4         node.next, node.prev = nxt, prev\cb1 \
+\cb4         \cb1 \
+\
+\cb4     \cf3 \strokec3 def\cf0 \strokec2  \cf6 \strokec6 get\cf0 \strokec2 (\cf7 \strokec7 self\cf0 \strokec2 , \cf7 \strokec7 key\cf0 \strokec2 : \cf5 \strokec5 int\cf0 \strokec2 ) -> \cf5 \strokec5 int\cf0 \strokec2 :\cb1 \
+\cb4         \cf10 \strokec10 if\cf0 \strokec2  key \cf3 \strokec3 in\cf0 \strokec2  \cf3 \strokec3 self\cf0 \strokec2 .cache:\cb1 \
+\cb4             \cf8 \strokec8 #to update lru \cf0 \cb1 \strokec2 \
+\cb4             \cf3 \strokec3 self\cf0 \strokec2 .remove(\cf3 \strokec3 self\cf0 \strokec2 .cache[key])\cb1 \
+\cb4             \cf3 \strokec3 self\cf0 \strokec2 .add(\cf3 \strokec3 self\cf0 \strokec2 .cache[key])\cb1 \
+\cb4             \cf10 \strokec10 return\cf0 \strokec2  \cf3 \strokec3 self\cf0 \strokec2 .cache[key].val\cb1 \
+\cb4         \cf10 \strokec10 return\cf0 \strokec2  -\cf9 \strokec9 1\cf0 \cb1 \strokec2 \
+\cb4         \cb1 \
+\
+\cb4     \cf3 \strokec3 def\cf0 \strokec2  \cf6 \strokec6 put\cf0 \strokec2 (\cf7 \strokec7 self\cf0 \strokec2 , \cf7 \strokec7 key\cf0 \strokec2 : \cf5 \strokec5 int\cf0 \strokec2 , \cf7 \strokec7 value\cf0 \strokec2 : \cf5 \strokec5 int\cf0 \strokec2 ) -> \cf3 \strokec3 None\cf0 \strokec2 :\cb1 \
+\cb4         \cf10 \strokec10 if\cf0 \strokec2  key \cf3 \strokec3 in\cf0 \strokec2  \cf3 \strokec3 self\cf0 \strokec2 .cache:\cb1 \
+\cb4             \cf3 \strokec3 self\cf0 \strokec2 .remove(\cf3 \strokec3 self\cf0 \strokec2 .cache[key])\cb1 \
+\
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .cache[key] = Node(key,value)\cb1 \
+\cb4         \cf3 \strokec3 self\cf0 \strokec2 .add(\cf3 \strokec3 self\cf0 \strokec2 .cache[key])\cb1 \
+\
+\cb4         \cf10 \strokec10 if\cf0 \strokec2  \cf6 \strokec6 len\cf0 \strokec2 (\cf3 \strokec3 self\cf0 \strokec2 .cache) > \cf3 \strokec3 self\cf0 \strokec2 .caps:\cb1 \
+\cb4             lru = \cf3 \strokec3 self\cf0 \strokec2 .left.next \cb1 \
+\cb4             \cf3 \strokec3 self\cf0 \strokec2 .remove(lru)\cb1 \
+\cb4             \cf10 \strokec10 del\cf0 \strokec2  \cf3 \strokec3 self\cf0 \strokec2 .cache[lru.key]\cb1 \
+\
+\
+\cb4         \cb1 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb4 \strokec8 # Your LRUCache object will be instantiated and called as such:\cf0 \cb1 \strokec2 \
+\cf8 \cb4 \strokec8 # obj = LRUCache(capacity)\cf0 \cb1 \strokec2 \
+\cf8 \cb4 \strokec8 # param_1 = obj.get(key)\cf0 \cb1 \strokec2 \
+\cf8 \cb4 \strokec8 # obj.put(key,value)\cf0 \cb1 \strokec2 \
+}
